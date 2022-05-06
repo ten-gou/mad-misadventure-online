@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS mad_db;
+
+CREATE DATABASE mad_db;
