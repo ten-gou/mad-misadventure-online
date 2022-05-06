@@ -45,7 +45,11 @@ io.on('connection', (socket) => {
   console.log('a user connected');
   // io.listen(3000, () => console.log(`Creating socket`));
   socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
     console.log('message: ' + msg);
+  });
+  socket.on('chat group2', (msg) => {
+    console.log('message g2: ' + msg);
   });
 
      //Whenever someone disconnects this piece of code executed
