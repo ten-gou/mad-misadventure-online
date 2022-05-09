@@ -1,3 +1,20 @@
+/* START: Clearing bootstrap defaults. */
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+  padding: unset;
+}
+
+
+p {
+  margin: 0;
+}
+
+.card {
+  border: 2px solid rgba(0,0,0,.5);
+}
+
+
+/* END: Clearing bootstrap defaults. */
+
 body {
   margin: 0;
   padding-bottom: 3rem;
@@ -5,24 +22,42 @@ body {
     Arial, sans-serif;
 }
 
+.game_box {
+  min-height: 500px;
+}
+
+#attackBtn {
+  background-color: #dc3545;
+}
+
+#defendBtn {
+  background-color: #6c757d;
+}
+#potionBtn {
+  background-color: #17a2b8;
+}
+
 #userForm {
   background: rgba(0, 0, 0, 0.15);
-  padding: 0.25rem;
-  position: fixed;
+  padding: 0.5rem;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
   display: flex;
-  height: 3rem;
+  min-height: 4rem;
   box-sizing: border-box;
   backdrop-filter: blur(10px);
+  flex-wrap: wrap;
 }
 #userChat {
   border: none;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   flex-grow: 1;
-  border-radius: 2rem;
-  margin: 0.25rem;
+  border-radius: 5px;
+  margin: 0rem;
+  max-width: 100%;
+  min-height: 2rem;
 }
 #userChat:focus {
   outline: none;
@@ -31,10 +66,11 @@ body {
   background: #333;
   border: none;
   padding: 0 1rem;
-  margin: 0.25rem;
+  margin: 0;
   border-radius: 3px;
   outline: none;
   color: #fff;
+  min-height: 2rem;
 }
 
 #userMessages {
@@ -47,4 +83,16 @@ body {
 }
 #userMessages > li:nth-child(odd) {
   background: #efefef;
+}
+
+
+.actions {
+  border-top: 2px solid rgba(0,0,0,.5) 
+}
+
+
+@media screen and (max-width: 768px) {
+  .game_box {
+    min-height: 100px;
+  }  
 }
