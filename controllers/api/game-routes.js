@@ -1,6 +1,8 @@
 const router = require('express').Router() ;
 const sanitize = require('validator').sanitize;
 
+const { playerAttack } = require("../../lib/game");
+
 // Attacking
 router.post('/battle/attack', async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
@@ -8,7 +10,7 @@ router.post('/battle/attack', async (req, res) => {
     console.log('req.body:', req.body)
     
     // TODO: Add attack library calls.
-    // attackInfo = 
+    const enemy = await playerAttack(req.session.user_id, 1);
 
     const io = req.app.get('socketio');
     const message = sanitize("User_Name attacked for ???").xss()

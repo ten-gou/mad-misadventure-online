@@ -11,19 +11,19 @@ Enemy.init(
       primaryKey: true,
       autoIncrement: true
     },
-      enemy_name: {
+      name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-      enemy_hp: {
+      hp: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-      enemy_attack: {
+      attack: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-      enemy_defense: {
+      defense: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
