@@ -23,7 +23,8 @@ body {
 }
 
 .game_box {
-  min-height: 500px;
+  min-height: 400px;
+  max-height: 500px;
 }
 
 #attackBtn {
@@ -77,6 +78,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: scroll;
 }
 #userMessages > li {
   padding: 0.5rem 1rem;
