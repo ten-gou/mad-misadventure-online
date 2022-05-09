@@ -1,19 +1,33 @@
 
-<h2>Home</h2>
-<div>
-  <div>
-    <ul id="userMessages"></ul>
-    <form id="userForm" action="">
-      <input id="userChat" autocomplete="off" />
-      <button>Send</button>
-    </form>
-  </div>
-  <div>    
-    <ul id="gameMessages"></ul>
-    {{!-- <form id="form" action="">
-      <input id="input" autocomplete="off" />
-      <button>Send</button>
-    </form> --}}
-  </div>
+<div class="my-2">
+  <section class="d-flex flex-column align-items-center">
+    <div class="col-12 col-md-10 col-lg-10">
+      <div class="d-flex flex-row mb-4">
+        <h2 class="w-100 text-center">Play Game</h2>
+      </div>
+      <div class="d-flex flex-row flex-wrap">
+        <div class="col-12 col-md-9">
+          <div class="h-100 card">
+            <ul id="gameMessages" class="h-100"></ul>
+            <div class="d-flex flex-row justify-content-center actions">
+              <button id="attackBtn" class="btn my-3 mx-3 text-white ">Attack</button>
+              <button id="defendBtn" class="btn my-3 mx-3 text-white ">Defend</button>
+              <button id="potionBtn" class="btn my-3 mx-3 text-white ">Use Potion</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-3">
+          <ul id="userMessages" class="game_box card"></ul>
+          <div>
+            <form id="userForm" class="justify-content-end" action="">
+              <input id="userChat" class="mt-1" autocomplete="off" />
+              <button class="btn mt-1">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
 <script src="./js/chat.js"></script>
