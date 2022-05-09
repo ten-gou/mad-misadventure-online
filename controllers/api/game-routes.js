@@ -2,7 +2,7 @@ const router = require('express').Router() ;
 const sanitize = require('validator').sanitize;
 
 // Attacking
-router.post('/battle/attack', (req, res) => {
+router.post('/battle/attack', async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
@@ -23,7 +23,7 @@ router.post('/battle/attack', (req, res) => {
 })
 
 // Defending
-router.post('/battle/defend', (req, res) => {
+router.post('/battle/defend', async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
@@ -44,7 +44,7 @@ router.post('/battle/defend', (req, res) => {
 })
 
 // Using item
-router.post('/battle/item', (req, res) => {
+router.post('/battle/item', async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
