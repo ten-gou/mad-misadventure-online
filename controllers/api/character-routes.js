@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-//dummy change
+
 router.get("/:id", async (req, res) => {
   try {
     const character = await getCharacterById(req.params.id);
