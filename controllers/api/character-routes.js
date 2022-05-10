@@ -1,96 +1,72 @@
-const router = require('express').Router() ;
-const { Character } = require('../../models');
+const router = require("express").Router();
 
-router.get('/', (req, res) => {
-    Character.findAll()
-    .then(dbCharacterData => res.json(dbCharacterData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-})
+const {
+  getCharacters,
+  getCharacterById,
+  createCharacter,
+  updateCharacterById,
+  deleteCharacterById,
+} = require("../../lib/character");
 
-router.get('/:id', (req, res) => {
-    Character.findOne({
-        where: {
-          id: req.params.id
-        },
-      })
-        .then(dbCharacterData => {
-          if (!dbCharacterData) {
-            res.status(404).json({ message: 'No character found with this id' });
-            return;
-          }
-          res.json(dbCharacterData);
-        })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-    });
-})
-
-router.post('/', (req, res) => {
-    Character.create({
-        character_name: req.body.character_name,
-        character_level: req.body.character_level,
-        character_exp: req.body.character_exp,
-        character_hp: req.body.character_hp,
-        character_attack: req.body.character_attack,
-        character_defense: req.body.character_defense
-      })
-        .then(dbCharacterData => res.json(dbCharacterData))
-        .catch(err => {
-          console.log(err);
-          res.status(400).json(err);
-        });
+router.get("/", async (req, res) => {
+  try {
+    const characters = await getCharacters();
+    res.status(200).json(characters);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.put('/:id', (req, res) => {
-    Character.update(
-        {
-          character_name: req.body.character_name,
-          character_level: req.body.character_level,
-          character_exp: req.body.character_exp,
-          character_hp: req.body.character_hp,
-          character_attack: req.body.character_attack,
-          character_defense: req.body.character_defense
-        },
-        {
-          where: {
-            id: req.params.id
-          }
-        }
-      )
-        .then(dbCharacterData => {
-          if (!dbCharacterData) {
-            res.status(404).json({ message: 'No character found with this id' });
-            return;
-          }
-          res.json(dbCharacterData);
-        })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-        });
-})
+router.get("/:id", async (req, res) => {
+  try {
+    const character = await getCharacterById(req.params.id);
+    if (!character) {
+      res
+        .status(404)
+        .json({ message: "Unable to get character with given id" });
+    }
+    res.status(200).json(character);
+  } catch {
+    res.status(500).json(err);
+  }
+});
 
-router.delete('/:id', (req, res) => {
-    Character.destroy({
-        where: {
-          id: req.params.id
-        }
-      })
-        .then(dbCharacterData => {
-          if (!dbCharacterData) {
-            res.status(404).json({ message: 'No character found with this id!' });
-            return;
-          }
-          res.json(dbCharacterData);
-        })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-    });
-})
+router.post("/", async (req, res) => {
+  try {
+    const character = await createCharacter(req.body);
+    res.status(200).json(character);
+  } catch {
+    res.status(500).json(err);
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const character = await updateCharacterById(req.params.id, req.body);
+    if (!character) {
+      res
+        .status(404)
+        .json({ message: "Unable to get character with given id" });
+    }
+    res.status(200).json(character);
+  } catch {
+    res.status(500).json(err);
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const character = await deleteCharacterById(req.params.id);
+    console.log(character);
+    if (!character) {
+      res
+        .status(404)
+        .json({ message: "Unable to get character with given id" });
+    }
+    res.status(200).json(character);
+  } catch {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
