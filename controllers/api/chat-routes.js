@@ -1,5 +1,6 @@
 const router = require('express').Router() ;
-const sanitize = require('validator').sanitize;
+const sanitizeHtml = require('sanitize-html');
+
 
 router.post('/', (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
@@ -8,7 +9,7 @@ router.post('/', (req, res) => {
     const { chat_message } = req.body;
     const io = req.app.get('socketio');
 
-    const message = sanitize(chat_message).xss()
+    const message = sanitizeHtml(chat_message)
     io.emit('chat message', message);
 
     res.status(200).json({message: `Sent chat message.`})
