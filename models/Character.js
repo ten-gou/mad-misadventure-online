@@ -11,29 +11,36 @@ Character.init(
       primaryKey: true,
       autoIncrement: true
      },
-     character_name: {
+     name: {
       type: DataTypes.STRING,
       allowNull: false
      },
-     character_level: {
+     level: {
      type: DataTypes.INTEGER,
      allowNull: false
    },
-     character_exp: {
+     exp: {
      type: DataTypes.INTEGER,
      allowNull: false
    },
-     character_hp: {
+     hp: {
       type: DataTypes.INTEGER,
       allowNull: false
      },
-     character_attack: {
+     attack: {
       type: DataTypes.INTEGER,
       allowNull: false
      },
-     character_defense: {
+     defense: {
       type: DataTypes.INTEGER,
       allowNull: false
+     },
+     user_id: {
+         type: DataTypes.INTEGER,
+         references: {
+             model: 'user',
+             key: 'id'
+         }
      }
    },
      {

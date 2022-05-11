@@ -1,5 +1,5 @@
 const router = require('express').Router() ;
-const sanitize = require('validator').sanitize;
+const sanitizeHtml = require('sanitize-html');
 
 // Attacking
 router.post('/battle/attack', async (req, res) => {
@@ -11,7 +11,7 @@ router.post('/battle/attack', async (req, res) => {
     // attackInfo = 
 
     const io = req.app.get('socketio');
-    const message = sanitize("User_Name attacked for ???").xss()
+    const message = sanitizeHtml("User_Name attacked for ???")
     io.emit('battle message', message);
 
     res.status(200).json({message: `Attack successful.`})
@@ -32,7 +32,7 @@ router.post('/battle/defend', async (req, res) => {
     // defendInfo = 
 
     const io = req.app.get('socketio');
-    const message = sanitize("User_Name defended for ???").xss()
+    const message = sanitizeHtml("User_Name defended for ???")
     io.emit('battle message', message);
 
     res.status(200).json({message: `Defend successful.`})
@@ -44,7 +44,7 @@ router.post('/battle/defend', async (req, res) => {
 })
 
 // Using item
-router.post('/battle/item', async (req, res) => {
+router.post('/battle/potion', async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
@@ -53,7 +53,7 @@ router.post('/battle/item', async (req, res) => {
     // itemInfo = 
 
     const io = req.app.get('socketio');
-    const message = sanitize("Item_Name used to heal for ???").xss()
+    const message = sanitizeHtml("Item_Name used to heal for ???")
     io.emit('battle message', message);
 
     res.status(200).json({message: `Item successful.`})
