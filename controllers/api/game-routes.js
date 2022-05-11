@@ -1,15 +1,17 @@
 const router = require('express').Router() ;
 const sanitizeHtml = require('sanitize-html');
-const {playerAttack} = require('../../lib/game')
+const {withAuth} = require('../../utils/auth');
+const {playerAttack} = require('../../lib/game');
 
 // Attacking
-router.post('/battle/attack', async (req, res) => {
+router.post('/battle/attack', withAuth, async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
     
     // TODO: Add attack library calls.
-    // const attackInfo = await playerAttack;
+    console.log(req.session)
+    // const attackInfo = await playerAttack(req.session,);
 
 
     const io = req.app.get('socketio');
@@ -25,7 +27,7 @@ router.post('/battle/attack', async (req, res) => {
 })
 
 // Defending
-router.post('/battle/defend', async (req, res) => {
+router.post('/battle/defend', withAuth, async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
@@ -46,7 +48,7 @@ router.post('/battle/defend', async (req, res) => {
 })
 
 // Using item
-router.post('/battle/potion', async (req, res) => {
+router.post('/battle/potion', withAuth, async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
