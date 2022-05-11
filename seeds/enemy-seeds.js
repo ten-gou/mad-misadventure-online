@@ -4,21 +4,21 @@ const Enemy = require('../models/Enemy');
 
 const enemydata = [
     {
-        enemy_name: "Minotaur",
-        enemy_hp: 400,
-        enemy_attack: 20,
-        enemy_defense: 0,
+        name: "Minotaur",
+        hp: 400,
+        attack: 20,
+        defense: 0,
         exp_drop: 100
     },
     {
-        enemy_name: "Kraken",
-        enemy_hp: 600,
-        enemy_attack: 10,
-        enemy_defense: 3,
+        name: "Kraken",
+        hp: 600,
+        attack: 10,
+        defense: 3,
         exp_drop: 100
     },
 ]
 
-const seedEnemies = () => Enemy.bulkCreate(userdata, {individualHooks: true});
+const seedEnemies = () => Enemy.bulkCreate(enemydata, {individualHooks: true});
 
 module.exports = seedEnemies;

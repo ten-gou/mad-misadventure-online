@@ -12,11 +12,23 @@ Character.init(
       primaryKey: true,
       autoIncrement: true
      },
-    item_name: {},
-    item_type: {},
-    item_attack: {},
-    item_defense: {},
-    item_comment: {}
+    item_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    item_type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    item_attack: {
+      type: DataTypes.INTEGER,
+    },
+    item_defense: {
+      type: DataTypes.INTEGER,
+    },
+    item_comment: {
+      type: DataTypes.STRING,
+    }
    },
      {
        sequelize,
