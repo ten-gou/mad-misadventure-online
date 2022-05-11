@@ -10,6 +10,6 @@ router.use('/users', userRoutes);
 router.use('/enemies', enemyRoutes);
 router.use('/characters', characterRoutes);
 router.use('/chat', chatRoutes);
-router.use('/games', gameRoutes);
+router.use('/battle', gameRoutes);
 
 module.exports = router;

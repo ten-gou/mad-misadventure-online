@@ -14,14 +14,7 @@ const seedAll = async () => {
   Users Seeded
   --------------
   `);
-
-  await seedEnemies();
-  console.log(`
-  --------------
-  Enemies Seeded
-  --------------
-  `);
-
+  
   await seedCharacters();
   console.log(`
   --------------
@@ -33,6 +26,12 @@ const seedAll = async () => {
   console.log(`
   --------------
   Items Seeded
+  --------------
+  `);
+  await seedEnemies();
+  console.log(`
+  --------------
+  Enemies Seeded
   --------------
   `);
 
