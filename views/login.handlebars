@@ -1,0 +1,47 @@
+<div class="d-flex flex-column">
+  <h2 class="pageTitle text-center" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;">Login or Signup</h2>
+  
+
+  <div class="d-flex flex-column flex-md-row justify-content-around p-2" style="background-color: rgb(197, 189, 146);">
+    <!--Login Box-->
+    <form class="card py-2 px-3 login-form col-12 col-md-6 col-lg-5 mx-2" style="background-color: rgb(161, 127, 123);">
+      <div class="d-flex my-1 align-items-center">
+        <label class="text-left col-4" for="email-login">email:</label>
+        <input class="col-8" type="text" id="email-login" />
+      </div>
+      <div class="d-flex my-1 align-items-center">
+        <label class="text-left col-4" for="password-login">password:</label>
+        <input class="col-8" type="password" id="password-login" />
+      </div>
+      <div class="col my-2">
+        <div class="d-flex justify-content-end">
+          <button class="btn" type="submit">login</button>
+        </div>
+      </div>
+    </form>
+
+    <!--signup box-->
+    <form class="card py-2 px-3 signup-form col-12 col-md-6 col-lg-5 mx-2" style="background-color: rgb(161, 127, 123);">
+      <div class="d-flex my-1 align-items-center">
+        <label class="text-left col-4" for="username-signup">username:</label>
+        <input class="col-8" type="text" id="username-signup" />
+      </div>
+      <div class="d-flex my-1 align-items-center">
+        <label class="text-left col-4" for="email-signup">email:</label>
+        <input class="col-8" type="text" id="email-signup" />
+      </div>
+      <div class="d-flex my-1 align-items-center">
+        <label class="text-left col-4" for="password-signup">password*:</label>
+        <input class="col-8" type="password" id="password-signup" />
+      </div>
+      <div class="d-flex justify-content-between my-2">
+        <span class="mb-1">* Password must be at least 8 characters.</span>
+        <div class="d-flex justify-content-end">
+          <button class="btn" type="submit">signup</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <span id="loginError" class="text-warning"></span>
+</div>
+<script src="/js/login.js"></script>
