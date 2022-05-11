@@ -16,6 +16,13 @@ const enemydata = [
         defense: 3,
         exp_drop: 100
     },
+    {
+        name: "Pudding",
+        hp: 50,
+        attack: 2,
+        defense: 0,
+        exp_drop: 50
+    }
 ]
 
 const seedEnemies = () => Enemy.bulkCreate(enemydata, {individualHooks: true});

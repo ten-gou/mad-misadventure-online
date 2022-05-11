@@ -7,6 +7,7 @@ const seedItems = require('./item-seeds');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('--------------');
+  
   await seedUsers();
   console.log(`
   --------------
@@ -34,14 +35,6 @@ const seedAll = async () => {
   Items Seeded
   --------------
   `);
-
-/*  await seedUsers();
-  console.log(`
-  --------------
-  Users Seeded
-  --------------
-  `);
-*/
 
   process.exit(0);
 };
