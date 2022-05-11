@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 // create our User model
 class Item extends Model {}
 
-Character.init(
+Item.init(
     {
     id: {
       type: DataTypes.INTEGER,
