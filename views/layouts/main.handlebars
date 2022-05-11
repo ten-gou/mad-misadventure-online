@@ -17,18 +17,20 @@
 
   <title>Home - Mad Misadventure Online</title>
 </head>
-<body>
+<body class="d-flex flex-column">
   <script src="/js/socket.io.js"></script>
 <script>
    // var socket = io();
   
   // var socket = io('http://localhost:3001');
 </script>
-  <div class="wrapper">
+  <div class="wrapper p-2">
     <div>
-      <header>
-        <h1>
-          <a href="/">Mad Misadventure Online</a>
+      <!--header space-->
+      <header class="d-flex justify-content-between">
+        <!--logo or title-->
+        <h1 class="">
+          <a href="/"><img src="https://cdn.discordapp.com/attachments/122572496741335040/973748942741327922/logo.png" style="width: 200px;"/> </a>
         </h1>
         {{#if loggedIn}}
         <button id="logout" class="btn-no-style">Logout</button>
@@ -36,16 +38,25 @@
         <a href="/login">Login</a>
         {{/if}}
       </header>
+
+
       <nav class="nav justify-content-center">
         <a class="px-2" href="/">Home</a>
         <a class="px-2" href="/game">Play Game</a>
+        {{#if loggedIn}}
+        <a class="px-2" href="/character">View Character</a>
+        {{/if}}
       </nav>
     </div>
-    <main>
+
+    <!--main body-->
+    <main class="p-2">
       {{{ body }}}
     </main>
-    <footer>
-      Thank you and have a nice day!
+
+    <!--footer space-->
+    <footer class="p-3 text-center font-weight-bold text-dark" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;">
+      Made by Eric Ng, Joe Rule, and Libin Wang
     </footer>
   </div>
   
