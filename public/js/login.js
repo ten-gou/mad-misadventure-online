@@ -16,7 +16,7 @@ async function loginFormHandler(event) {
   
       if (response.ok) {
         if(location.pathname === "/login"){
-          document.location.replace('/dashboard/');
+          document.location.replace('/character/');
         } else {
           location.reload();
         }
@@ -34,15 +34,15 @@ async function loginFormHandler(event) {
     const password = document.getElementById('password-signup').value.trim();
   
     try {
-      grecaptcha.ready( async function() {
-        grecaptcha.execute('6LfGds4fAAAAAMkLeNvizoDylbBPZbYGLuBgOOS7', {action: 'submit'})
-        .then( async function(token) {
+      // grecaptcha.ready( async function() {
+      //   grecaptcha.execute('6LfGds4fAAAAAMkLeNvizoDylbBPZbYGLuBgOOS7', {action: 'submit'})
+      //   .then( async function(token) {
           event.preventDefault();
           if (username && email && password) {
             const response = await fetch('/api/users', {
               method: 'post',
               body: JSON.stringify({
-                token,
+                // token,
                 username,
                 email,
                 password
@@ -52,7 +52,7 @@ async function loginFormHandler(event) {
   
             if (response.ok) {
               if(location.pathname === "/login"){
-                document.location.replace('/dashboard/');
+                document.location.replace('/character/');
               } else {
                 console.log("response: ", response)
                 location.reload();
@@ -62,8 +62,8 @@ async function loginFormHandler(event) {
             }
           }
   
-      });
-    });
+    //   });
+    // });
     } catch (error) {
       console.log(error)
       document.getElementById('loginError').innerText = 'Sign up failed. Please check username, email, or password length.';
