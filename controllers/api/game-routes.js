@@ -2,23 +2,23 @@ const router = require('express').Router() ;
 const sanitizeHtml = require('sanitize-html');
 const {withAuth} = require('../../utils/auth');
 const {playerAttack} = require('../../lib/game');
+const { Character } = require('../../models');
 
 // Attacking
-router.post('/battle/attack', withAuth, async (req, res) => {
+router.post('/attack', withAuth, async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
-    console.log('req.body:', req.body)
-    
-    // TODO: Add attack library calls.
-    console.log(req.session)
-    // const attackInfo = await playerAttack(req.session,);
+    // todo - how to cycle through enemies 
+    const enemy_id = 1 
 
+    const {character, enemy} = await playerAttack(req.session.user_id, enemy_id)
 
     const io = req.app.get('socketio');
     const message = sanitizeHtml("User_Name attacked for ???")
     io.emit('battle message', message);
 
-    res.status(200).json({message: `Attack successful.`})
+    console.log(character)
+    res.status(200).json({message: `Attack successful.`, character, enemy})
       
    } catch (error) {
     console.log(error);
@@ -27,7 +27,7 @@ router.post('/battle/attack', withAuth, async (req, res) => {
 })
 
 // Defending
-router.post('/battle/defend', withAuth, async (req, res) => {
+router.post('/defend', withAuth, async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)
@@ -48,7 +48,7 @@ router.post('/battle/defend', withAuth, async (req, res) => {
 })
 
 // Using item
-router.post('/battle/potion', withAuth, async (req, res) => {
+router.post('/potion', withAuth, async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     console.log('req.body:', req.body)

@@ -19,7 +19,7 @@ function addCombatListeners(){
   attackBtn.addEventListener('click', async function(e) {
     e.preventDefault();
     
-    const response = await fetch(`/api/games/battle/attack`, {
+    const response = await fetch(`/api/game/attack`, {
       method: 'POST',
       body: JSON.stringify({
         info: 'info'
@@ -42,7 +42,7 @@ function addCombatListeners(){
   defendBtn.addEventListener('click', async function(e) {
     e.preventDefault();
     
-    const response = await fetch(`/api/games/battle/defend`, {
+    const response = await fetch(`/api/game/defend`, {
       method: 'POST',
       body: JSON.stringify({
         info: 'info'
@@ -66,7 +66,7 @@ function addCombatListeners(){
   potionBtn.addEventListener('click', async function(e) {
     e.preventDefault();
     
-    const response = await fetch(`/api/games/battle/potion`, {
+    const response = await fetch(`/api/game/potion`, {
       method: 'POST',
       body: JSON.stringify({
         info: 'info'
