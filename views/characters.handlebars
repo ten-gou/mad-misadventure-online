@@ -4,15 +4,16 @@
             <!--Character Name-->
             <div class="d-flex flex-column m-3 bg-secondary p-3 rounded-lg justify-content-center col-12 col-md-7 col-lg-7">
                 <h5 class="text-center border-bottom mx-3">Character Name</h5>
-                <h1 class="text-center">Anikka</h1>
+                <h1 class="text-center">{{post.name}}</h1>
             </div>
+            
     
             <!--Level and EXP-->
             <div class="d-flex flex-row m-2 col-12 col-md-2 col-lg-2 flex-wrap justify-content-center">
                 <!--Level-->
                 <div class="m-1 bg-secondary p-4 rounded-lg">
                     <h5 class="text-center border-bottom mx-2">Level</h5>
-                    <h5 class="text-center">15</h5>
+                    <h5 class="text-center" id="currentLevel">{{post.level}}</h5>
                 </div>
     
                 <!--EXP-->
@@ -20,10 +21,10 @@
                     <h5 class="text-center border-bottom mx-2">EXP</h5>
                     <div class="d-flex flex-row justify-content-center">
                         <!--current EXP-->
-                        <p>15203</p>
+                        <p>{{post.exp}}</p>
                         <p>/</p>
                         <!--Levelup Threshold EXP-->
-                        <p>16000</p>
+                        <p id="ExpThreshhold">16000</p>
                     </div>
                 </div>
             </div>
@@ -35,7 +36,7 @@
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="d-flex flex-column m-2 bg-secondary p-4 rounded-lg justify-content-center">
                     <h5 class="text-center border-bottom mx-3">Attack</h5>
-                    <h6 class="text-center">50</h6>
+                    <h6 class="text-center">{{post.attack}}</h6>
                 </div>
             </div>
     
@@ -43,7 +44,7 @@
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="d-flex flex-column m-2 bg-secondary p-4 rounded-lg justify-content-center">
                     <h5 class="text-center border-bottom mx-3">Health Points</h5>
-                    <h6 class="text-center">360</h6>
+                    <h6 class="text-center">{{post.hp}}</h6>
                 </div>
             </div>
     
@@ -51,7 +52,7 @@
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="d-flex flex-column m-2 bg-secondary p-4 rounded-lg justify-content-center">
                     <h5 class="text-center border-bottom mx-3">Defense</h5>
-                    <h6 class="text-center">10</h6>
+                    <h6 class="text-center">{{post.defense}}</h6>
                 </div>
             </div>
         </article>
@@ -101,3 +102,4 @@
     </section>
 
     <script src="/js/characterpage.js"></script>
+    <script src="/js/expthresh.js"></script>
