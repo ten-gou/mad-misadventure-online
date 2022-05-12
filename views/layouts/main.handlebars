@@ -43,10 +43,10 @@
       <nav class="nav justify-content-center">
         <a class="px-2" href="/">Home</a>
         <a class="px-2" href="/game">Play Game</a>
-        <a class="px-2" href="/character">View Character</a>
         <!--{{#if loggedIn}}-->
-        <a class="px-2" href="/character<!--/{{user.id}}-->">View Character</a>
+        <a class="px-2" href="/characters/{{user_id}}" id="characterpage">View Character</a>
         <!--{{/if}}-->
+
       </nav>
     </div>
 
@@ -65,5 +65,7 @@
   <script src="/js/logout.js"></script>
   {{/if}}
   
+  <script src="/js/characterpage.js"></script>
+
 </body>
 </html>
