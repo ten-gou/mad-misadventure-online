@@ -24,7 +24,9 @@ router.post('/attack', withAuth, async (req, res) => {
     }
     const enemy_res = {
       "name": enemy.name,
+      "attack": enemy.attack,
       "defense": enemy.defense,
+      // "image_url": enemy.image_url,
       "hp": new_hp
     }
 

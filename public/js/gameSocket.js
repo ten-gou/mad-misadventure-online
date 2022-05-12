@@ -12,6 +12,21 @@ socket.on('battle message', function(msg) {
   }
 });
 
+socket.on('battle stats', function(data) {
+  const enemyNameEle = document.getElementById('enemyName');
+  const enemyImgEle = document.getElementById('enemyImg');
+  const enemyHPEle = document.getElementById('enemyHP');
+  const enemyAtkEle = document.getElementById('enemyAtk');
+  const enemyDefEle = document.getElementById('enemyDef');
+
+  enemyNameEle.innerText = data.name
+  // enemyImgEle.setAttribute('src', data.image_url)
+  enemyHPEle.innerText = `HP: ${data.hp}`
+  enemyAtkEle.innerText = `ATK: ${data.attack}`
+  enemyDefEle.innerText = `DEF: ${data.defense}`
+  
+});
+
 socket.on('chat message', function(msg) {
   const item = document.createElement('li');
   item.textContent = msg;
