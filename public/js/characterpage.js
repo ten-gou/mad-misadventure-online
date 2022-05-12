@@ -11,14 +11,6 @@ async function CharacterInfoPage() {
 
     const response = await fetch(`/api/characters/${id}`, {
         method: 'GET',
-        body: JSON.stringify({
-            name,
-            level,
-            exp,
-            hp,
-            attack,
-            defense,
-        }),
         headers: {
             'Content-Type': 'application/json'
         }
