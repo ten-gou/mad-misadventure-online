@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const {withAuth} = require('../../utils/auth');
 
 const {
   getCharacters,
@@ -31,9 +32,21 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    const character = await createCharacter(req.body);
+    const { name } = req.body;
+    const user_id = req.session.user_id
+
+    const characterData = {
+      name: name,
+      level: 1,
+      exp: 0,
+      hp: 10,
+      attack: 5,
+      defense: 4,
+      user_id: user_id
+    }
+    const character = await createCharacter(characterData);
     res.status(200).json(character);
   } catch {
     res.status(500).json(err);
