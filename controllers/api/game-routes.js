@@ -9,16 +9,34 @@ router.post('/attack', withAuth, async (req, res) => {
   console.log(`${req.method}: ${req.baseUrl}`);
   try {
     // todo - how to cycle through enemies 
-    const enemy_id = 1 
+    const enemy_id = 1;
+    const {character, enemy, new_hp} = await playerAttack(req.session.user_id, enemy_id)
+    // const {attackData} = await playerAttack(req.session.user_id, enemy_id)
 
-    const {character, enemy} = await playerAttack(req.session.user_id, enemy_id)
+
+    console.log("character: ", character)
+    console.log("enemy: ", enemy)
+    // console.log("attackData: ", attackData)
+
+    const user_res = {
+      "name": character.name,
+      "attack": character.attack
+    }
+    const enemy_res = {
+      "name": enemy.name,
+      "attack": enemy.attack,
+      "defense": enemy.defense,
+      // "image_url": enemy.image_url,
+      "hp": new_hp
+    }
 
     const io = req.app.get('socketio');
-    const message = sanitizeHtml("User_Name attacked for ???")
+    const message = sanitizeHtml(`${character.name} damaged ${enemy.name} by ${character.attack - enemy.defense} HP.`)
     io.emit('battle message', message);
+    io.emit('battle stats', enemy_res);
 
-    console.log(character)
-    res.status(200).json({message: `Attack successful.`, character, enemy})
+
+    res.status(200).json({message: `Attack successful.`})
       
    } catch (error) {
     console.log(error);
