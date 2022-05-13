@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", withAuth, async (req, res) => {
   try {
     const { name } = req.body;
-    const user_id = req.session.user_id
+    const user_id = req.session.user_id;
 
     const characterData = {
       name: name,

@@ -5,6 +5,15 @@
             <div class="d-flex flex-column m-3 bg-secondary p-3 rounded-lg justify-content-center col-12 col-md-7 col-lg-7">
                 <h5 class="text-center border-bottom mx-3">Character Name</h5>
                 <h1 class="text-center">{{post.name}}</h1>
+                {{#unless post.name}}
+                <div>
+                    <form id="newCharacterForm" class="justify-content-end" action="">
+                    <input id="newCharacterName" class="mt-1" autocomplete="off" />
+                    <button class="btn mt-1 btn-primary">New Character</button>
+                    </form>
+                    <span>{{post.name}}</span>
+                </div>
+                {{/unless}}
             </div>
             
     
@@ -101,5 +110,6 @@
         </article>
     </section>
 
-    <script src="/js/characterpage.js"></script>
+    {{!-- <script src="/js/characterpage.js"></script> disabled, content is being called in main --}}
+    <script src="/js/character.js"></script>
     <script src="/js/expthresh.js"></script>
