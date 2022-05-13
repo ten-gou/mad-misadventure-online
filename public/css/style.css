@@ -20,8 +20,7 @@ body {
   padding-bottom: 3rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
-  background: rgb(41, 34, 34);
-  background: linear-gradient(180deg, rgb(66, 44, 44) 0%, rgb(31, 31, 31) 100%);
+  background: rgb(255, 255, 255);
 }
 
 
@@ -113,17 +112,25 @@ body {
 }
 
 a:link {
-  color: rgb(192, 172, 143);
+  color: rgb(182, 152, 107);
 }
 
 a:visited {
-  color: #a8998f;
+  color: #916b52;
 }
 
 a:hover {
-  color: rgb(99, 83, 61);
+  color: rgb(95, 61, 41);
 }
 
 a:active {
-  color: rgb(224, 179, 115);
+  color: rgb(252, 174, 64);
+}
+
+#mainCharabox {
+  background-color: #a7d1d8;
+}
+
+#secondCharabox {
+  background-color: #ca7e4c;
 }
