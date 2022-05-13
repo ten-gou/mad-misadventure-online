@@ -1,5 +1,5 @@
 async function CharacterInfoPage() {
-    event.preventDefault();
+    // event.preventDefault();
 
     const userid = await getUserById(req.sessions.user_id);
     if (!userid) {
@@ -16,9 +16,9 @@ async function CharacterInfoPage() {
         }
     });
 
-if (response.ok) {
-    console.log(response)
-} else {
-    alert(response.statusText);
-}    
+    if (response.ok) {
+        console.log(response)
+    } else {
+        alert(response.statusText);
+    }  
 }
