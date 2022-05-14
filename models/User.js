@@ -36,7 +36,12 @@ User.init(
       allowNull: false,
       validate: {
         len: [4]
-      }
+      },
+    logged_in: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }
     }
   },
   {

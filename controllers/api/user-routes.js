@@ -59,6 +59,8 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     };
+    // update user logged in state 
+    await updateUserLoggedInStatus(user.id, true);
     req.session.save(() => {
       req.session.user_id = user.id;
       req.session.username = user.username;
@@ -71,8 +73,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', async (req, res) => {
   if (req.session.loggedIn) {
+    await updateUserLoggedInStatus(req.session.user_id, false);
     req.session.destroy(() => {
       res.status(204).end();
     });

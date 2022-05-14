@@ -6,7 +6,6 @@ const { Character } = require('../../models');
 
 // Attacking
 router.post('/attack', withAuth, async (req, res) => {
-  await getLoggedInUsers();
 
   try {
     const enemy_id = 1;
@@ -63,6 +62,17 @@ router.post('/potion', withAuth, async (req, res) => {
     io.emit('battle message', message);
 
     res.status(200).json({message: `Item successful.`, character: character, add_hp: add_hp})
+   } catch (error) {
+    console.log(error);
+    res.status(500).json({"Error": "Server error while attempting to item in game."});
+  }
+})
+
+router.post('/enemyAttackAll', withAuth, async (req, res) => {
+  try {
+    await enemyAttackAll(1)
+
+    res.status(200).json({message: `enemy attacked all`})
    } catch (error) {
     console.log(error);
     res.status(500).json({"Error": "Server error while attempting to item in game."});
