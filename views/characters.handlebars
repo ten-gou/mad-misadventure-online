@@ -3,13 +3,13 @@
         <article class="d-flex flex-row my-4 p-4 flex-wrap w-auto justify-content-center rounded-lg" id="mainCharabox">
             <!--Character Name-->
             <div class="d-flex flex-column m-3 p-3 rounded-lg justify-content-center col-12 col-md-7 col-lg-7" id="secondCharabox">
-                <h5 class="text-center border-bottom mx-3">Character Name</h5>
-                <h1 class="text-center">{{post.name}}</h1>
+                <h4 class="text-center border-bottom mx-3">Character Name</h4>
+                <p class="text-center" id="charactername">{{post.name}}</p>
                 {{#unless post.name}}
-                <div>
+                <div class="mx-auto">
                     <form id="newCharacterForm" class="justify-content-end" action="">
-                    <input id="newCharacterName" class="mt-1" autocomplete="off" />
-                    <button class="btn mt-1 btn-primary">New Character</button>
+                        <input id="newCharacterName" class="mt-1" autocomplete="off" />
+                        <button class="btn mt-1 btn-primary">New Character</button>
                     </form>
                     <span>{{post.name}}</span>
                 </div>
@@ -21,13 +21,13 @@
             <div class="d-flex flex-row m-2 col-12 col-md-2 col-lg-2 flex-wrap justify-content-center">
                 <!--Level-->
                 <div class="m-1 p-4 rounded-lg" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-2">Level</h5>
-                    <h5 class="text-center" id="currentLevel">{{post.level}}</h5>
+                    <h4 class="text-center border-bottom mx-2">Level</h4>
+                    <p class="text-center" id="currentLevel">{{post.level}}</p>
                 </div>
     
                 <!--EXP-->
                 <div class="m-1 p-4 rounded-lg" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-2">EXP</h5>
+                    <h4 class="text-center border-bottom mx-2">EXP</h4>
                     <div class="d-flex flex-row justify-content-center">
                         <!--current EXP-->
                         <p>{{post.exp}}</p>
@@ -43,25 +43,25 @@
         <article class="d-flex flex-row my-4 p-3 flex-wrap w-auto justify-content-center rounded-lg" id="mainCharabox">
             <!--ATK-->
             <div class="col-12 col-md-4 col-lg-4">
-                <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Attack</h5>
-                    <h6 class="text-center">{{post.attack}}</h6>
+                <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center " id="secondCharabox">
+                    <h4 class="text-center border-bottom mx-3">Attack</h4>
+                    <p class="text-center">{{post.attack}}</p>
                 </div>
             </div>
     
             <!--HP-->
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Health Points</h5>
-                    <h6 class="text-center">{{post.hp}}</h6>
+                    <h4 class="text-center border-bottom mx-3">Health Points</h4>
+                    <p class="text-center">{{post.hp}}</p>
                 </div>
             </div>
     
             <!--DEF-->
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Defense</h5>
-                    <h6 class="text-center">{{post.defense}}</h6>
+                    <h4 class="text-center border-bottom mx-3">Defense</h4>
+                    <p class="text-center">{{post.defense}}</p>
                 </div>
             </div>
         </article>
@@ -69,42 +69,42 @@
         <!--Item-->
         <article class="d-flex flex-row my-4 p-2 flex-wrap w-auto justify-content-center rounded-lg" id="mainCharabox">
             <!--Item Name-->
-            <div class="col-12 col-md-2 col-lg-2">
+            <div class="col-12 col-md-4 col-lg-2">
                 <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Item Name</h5>
-                    <h6 class="text-center">Sword</h6>
+                    <h4 class="text-center border-bottom mx-3">Name</h4>
+                    <p class="text-center">Sword</p>
                 </div>
             </div>
     
             <!--Item Type-->
-            <div class="col-12 col-md-2 col-lg-2">
+            <div class="col-12 col-md-4 col-lg-2">
                 <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Item Type</h5>
-                    <h6 class="text-center">Equipment</h6>
+                    <h4 class="text-center border-bottom mx-3">Item Type</h4>
+                    <p class="text-center">Equipment</p>
                 </div>
             </div>
     
             <!--Attack Bonus-->
-            <div class="col-12 col-md-2 col-lg-2">
+            <div class="col-12 col-md-4 col-lg-2">
                 <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Atk Bonus</h5>
-                    <h6 class="text-center">10</h6>
+                    <h4 class="text-center border-bottom mx-3">Atk Bonus</h4>
+                    <p class="text-center">10</p>
                 </div>
             </div>
     
             <!--Defense Bonus-->
-            <div class="col-12 col-md-2 col-lg-2">
+            <div class="col-12 col-md-4 col-lg-2">
                 <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Def Bonus</h5>
-                    <h6 class="text-center">0</h6>
+                    <h4 class="text-center border-bottom mx-3">Def Bonus</h4>
+                    <p class="text-center">0</p>
                 </div>
             </div>
     
             <!--Item Comment-->
-            <div class="col-12 col-md-2 col-lg-2">
+            <div class="col-12 col-md-4 col-lg-3">
                 <div class="d-flex flex-column m-2 p-4 rounded-lg justify-content-center" id="secondCharabox">
-                    <h5 class="text-center border-bottom mx-3">Comment</h5>
-                    <h6 class="text-center">No Comment</h6>
+                    <h4 class="text-center border-bottom mx-3">Comment</h4>
+                    <p class="text-center">No Comment</p>
                 </div>
             </div>
         </article>

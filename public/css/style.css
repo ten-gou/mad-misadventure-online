@@ -134,3 +134,8 @@ a:active {
 #secondCharabox {
   background-color: #ca7e4c;
 }
+
+#charactername {
+  font-size: 40px;
+  font-weight: bold;
+}
