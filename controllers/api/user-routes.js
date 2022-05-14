@@ -40,8 +40,9 @@ router.post('/', async (req, res) => {
         req.session.user_id = user.id;
         req.session.username = user.username;
         req.session.loggedIn = true;
+
+        res.json({message: "Account created."}) 
     })
-    res.status(200).json(user);
   } catch (err) {
     res.status(500).json(err);
   }
