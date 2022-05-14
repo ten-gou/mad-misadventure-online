@@ -9,6 +9,8 @@ const characterdata = [
         hp: 300,
         attack: 20,
         defense: 5,
+        defend_flag: 0,
+        num_potions: 3,
         user_id: 1
     },
     {
@@ -18,6 +20,8 @@ const characterdata = [
         hp: 240,
         attack: 18,
         defense: 4,
+        defend_flag: 0,
+        num_potions: 3,
         user_id: 2
     },
 ]

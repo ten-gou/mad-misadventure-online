@@ -35,6 +35,14 @@ Character.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    defend_flag: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    num_potions: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
