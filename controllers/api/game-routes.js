@@ -1,12 +1,12 @@
 const router = require('express').Router() ;
 const sanitizeHtml = require('sanitize-html');
 const {withAuth} = require('../../utils/auth');
-const {playerAttack, playerDefend, playerPotion} = require('../../lib/game');
+const {playerAttack, playerDefend, playerPotion, getLoggedInUsers} = require('../../lib/game');
 const { Character } = require('../../models');
 
 // Attacking
 router.post('/attack', withAuth, async (req, res) => {
-  console.log(`${req.method}: ${req.baseUrl}`);
+  await getLoggedInUsers();
 
   try {
     const enemy_id = 1;
@@ -58,11 +58,6 @@ router.post('/potion', withAuth, async (req, res) => {
   try {
     const {character, add_hp} = await playerPotion(req.session.user_id)
 
-    const character_res = {
-      "name": character.name,
-      "add_hp": add_hp
-    }
-
     const io = req.app.get('socketio');
     const message = sanitizeHtml(`${character.name} used potion and gained ${add_hp} HP.`)
     io.emit('battle message', message);
@@ -73,7 +68,5 @@ router.post('/potion', withAuth, async (req, res) => {
     res.status(500).json({"Error": "Server error while attempting to item in game."});
   }
 })
-
-
 
 module.exports = router;

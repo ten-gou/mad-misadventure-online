@@ -7,6 +7,7 @@ const enemydata = [
         hp: 400,
         attack: 20,
         defense: 0,
+        hit_counter: 0,
         exp_drop: 100
     },
     {
@@ -14,6 +15,7 @@ const enemydata = [
         hp: 600,
         attack: 10,
         defense: 3,
+        hit_counter: 0,
         exp_drop: 100
     },
     {
@@ -21,6 +23,7 @@ const enemydata = [
         hp: 50,
         attack: 2,
         defense: 0,
+        hit_counter: 0,
         exp_drop: 50
     }
 ]
