@@ -36,12 +36,14 @@ Character.init(
       allowNull: false,
     },
     defend_flag: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false
     },
     num_potions: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0
     },
     user_id: {
       type: DataTypes.INTEGER,
