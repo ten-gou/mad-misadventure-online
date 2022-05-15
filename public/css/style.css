@@ -26,7 +26,8 @@ body {
 
 .game_box {
   min-height: 400px;
-  max-height: 500px;
+  max-height: 400px;
+  overflow: auto;
 }
 
 #attackBtn {
@@ -77,12 +78,15 @@ body {
   min-height: 2rem;
 }
 
+.chat {
+  background: #eee8e7;
+}
+
 #userMessages {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: scroll;
-  background: #eee8e7;
+  /* background: #eee8e7; */
 }
 #userMessages > li {
   padding: 0.5rem 1rem;
@@ -99,8 +103,9 @@ body {
 
 @media screen and (max-width: 768px) {
   .game_box {
-    min-height: 100px;
-  }  
+    min-height: 200px;
+    max-height: 200px;
+  }
 }
 
 #gameMessages {
