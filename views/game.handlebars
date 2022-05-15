@@ -5,12 +5,12 @@
       <div class="d-flex flex-row mb-4">
         <h2 class="w-100 text-center" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;">Play Game</h2>
       </div>
-      <div class="d-flex flex-row flex-wrap">
+      <div class="d-flex flex-row flex-wrap ">
         <div class="col-12 col-md-9" >
-          <div class="h-100 card px-5 pb-2 pt-2" id="gameMessageBox">
-            <div class="d-flex h-100">
-              <ul id="gameMessages" class="h-100 col-9"></ul>
-              <div id="enemyStats" class="h-100 col-3 d-flex justify-content-center">
+          <div class="card px-5 pb-2 pt-2" id="gameMessageBox">
+            <div class="d-flex ">
+              <ul id="gameMessages" class=" col-9 game_box"></ul>
+              <div id="enemyStats" class=" col-3 d-flex justify-content-center">
                 <div class="d-flex justify-content-center flex-column">
                   <span id="enemyName" class="enemy">{{enemy.name}}</span>
                   <img id="enemyImg" class="mw-100" src="https://via.placeholder.com/350x350" width="100%">
@@ -32,12 +32,14 @@
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <ul id="userMessages" class="game_box card"></ul>
-          <div>
-            <form id="userForm" class="justify-content-end" action="">
-              <input id="userChat" class="mt-1" autocomplete="off" />
-              <button class="btn mt-1">Send</button>
-            </form>
+          <div class="card h-100 justify-content-between chat">
+            <ul id="userMessages" class="game_box"></ul>
+            <div>
+              <form id="userForm" class="justify-content-end" action="">
+                <input id="userChat" class="mt-1" autocomplete="off" />
+                <button class="btn mt-1">Send</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
