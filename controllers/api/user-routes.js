@@ -6,7 +6,8 @@ const {
   getUserById,
   createUser,
   updateUserById,
-  deleteUserById
+  deleteUserById,
+  updateUserLoggedInStatus
 } = require("../../lib/user");
 
 router.get("/", async (req, res) => {
@@ -59,15 +60,17 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     };
-    // update user logged in state 
-    await updateUserLoggedInStatus(user.id, true);
+    
     req.session.save(() => {
       req.session.user_id = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;
-  
-      res.json({ user: user.username, message: 'You are now logged in!' });
+    
+      
     });
+    console.log(req.session)
+    await updateUserLoggedInStatus(user.id, true);
+    res.json({ user: user.username, message: 'You are now logged in!' });
   } catch (err) {
     res.status(500).json("Unable to log in")
   }
