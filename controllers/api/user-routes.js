@@ -10,6 +10,10 @@ const {
   updateUserLoggedInStatus
 } = require("../../lib/user");
 
+const {
+  createCharacter,
+} = require("../../lib/character");
+
 router.get("/", async (req, res) => {
   try {
     const users = await getUsers();
@@ -33,16 +37,45 @@ router.get("/:id", async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const user = await createUser(req.body);
-    if (!user) {
-      res.status(404).json({ message: "Unable to get user with given id" });
+    const { username, email, password } = req.body;
+    const userData = { username, email, password };
+    const { characterName } = req.body;
+
+    if (!characterName) {
+      res.status(400).json({ message: "Missing character name." });
+      return
     }
+
+    const user = await createUser(userData);
+    if (!user) {
+      res.status(400).json({ message: "Unable to create user." });
+      return
+    }
+
+    console.log("userData: ", userData);
+    console.log("characterName: ", characterName);
+    console.log("user.id: ", user.id);
+
+    const user_id = user.id;
+
+    const characterData = {
+      name: characterName,
+      level: 1,
+      exp: 0,
+      hp: 10,
+      attack: 5,
+      defense: 4,
+      user_id: user_id
+    }
+    await createCharacter(characterData);
+
     req.session.save(() => {
         req.session.user_id = user.id;
         req.session.username = user.username;
         req.session.loggedIn = true;
+
+        res.json({message: "Account created."}) 
     })
-    res.status(200).json(user);
   } catch (err) {
     res.status(500).json(err);
   }

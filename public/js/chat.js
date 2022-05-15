@@ -1,5 +1,4 @@
 const chatJS = async function() {
-  const messages = document.getElementById('userMessages');
 
   const form = document.getElementById('userForm');
   form.addEventListener('submit', async function(e) {

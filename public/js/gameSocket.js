@@ -28,6 +28,7 @@ socket.on('battle stats', function(data) {
 });
 
 socket.on('chat message', function(msg) {
+  const messages = document.getElementById('userMessages');
   const item = document.createElement('li');
   item.textContent = msg;
   const scrollAfter = nearBottom(messages);
