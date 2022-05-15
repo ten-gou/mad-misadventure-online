@@ -1,5 +1,4 @@
 async function CharacterInfoPage() {
-    // event.preventDefault();
 
     const userid = await getUserById(req.sessions.user_id);
     if (!userid) {
