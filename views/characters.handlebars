@@ -4,16 +4,12 @@
             <!--Character Name-->
             <div class="d-flex flex-column m-3 p-3 rounded-lg justify-content-center col-12 col-md-7 col-lg-7" id="secondCharabox">
                 <h4 class="text-center border-bottom mx-3">Character Name</h4>
-                <p class="text-center" id="charactername">{{post.name}}</p>
-                {{#unless post.name}}
-                <div class="mx-auto">
-                    <form id="newCharacterForm" class="justify-content-end" action="">
-                        <input id="newCharacterName" class="mt-1" autocomplete="off" />
-                        <button class="btn mt-1 btn-primary">New Character</button>
-                    </form>
-                    <span>{{post.name}}</span>
+
+                <div class="d-flex flex-row flex-wrap justify-content-center px-3">
+                    <input class="text-center col-12 m-2" id="charactername" value="{{post.name}}" style="border: none; border-bottom: 2px dashed rgb(99, 35, 35); background-color:rgba(255, 255, 255, 0);"></input>
+
+                    <button class="btn mt-1 btn-primary col-6" id="updateCharacterButton">Edit Character Name</button>
                 </div>
-                {{/unless}}
             </div>
             
     
@@ -110,6 +106,7 @@
         </article>
     </section>
 
-    {{!-- <script src="/js/characterpage.js"></script> disabled, content is being called in main --}}
-    <script src="/js/character.js"></script>
+
+        <script src="/js/character.js"></script>
+<!--   <script src="/js/updatecharacter.js"></script>     -->
     <script src="/js/expthresh.js"></script>

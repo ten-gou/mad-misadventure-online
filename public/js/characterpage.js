@@ -1,5 +1,4 @@
 async function CharacterInfoPage() {
-    // event.preventDefault();
 
     const userid = await getUserById(req.sessions.user_id);
     if (!userid) {
@@ -9,7 +8,7 @@ async function CharacterInfoPage() {
         console.log(userid)
     }
 
-    const response = await fetch(`/api/characters/${id}`, {
+    const response = await fetch(`/api/characters/${userid}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
