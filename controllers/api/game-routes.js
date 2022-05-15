@@ -9,7 +9,7 @@ router.post('/attack', withAuth, async (req, res) => {
 
   try {
     const enemy_id = 1;
-    const {character, enemy, new_hp} = await playerAttack(req.session.user_id, enemy_id)
+    const {character, enemy, new_hp, enemyAttackFlag} = await playerAttack(req.session.user_id, enemy_id)
 
     const enemy_res = {
       "name": enemy.name,
@@ -23,6 +23,11 @@ router.post('/attack', withAuth, async (req, res) => {
     const message = sanitizeHtml(`${character.name} damaged ${enemy.name} by ${character.attack - enemy.defense} HP.`)
     io.emit('battle message', message);
     io.emit('battle stats', enemy_res);
+
+    if (enemyAttackFlag) {
+      const attackMessage = sanitizeHtml(`${enemy.name} attacks everyone!`)
+      io.emit('battle message', attackMessage);
+    }
 
     res.status(200).json({message: `Attack successful.`, character: character, enemy: enemy})
    } catch (error) {
@@ -58,7 +63,10 @@ router.post('/potion', withAuth, async (req, res) => {
     const {character, add_hp} = await playerPotion(req.session.user_id)
 
     const io = req.app.get('socketio');
-    const message = sanitizeHtml(`${character.name} used potion and gained ${add_hp} HP.`)
+    let message = sanitizeHtml(`${character.name} has no potions to use!`)
+    if (add_hp > 0) {
+      message = sanitizeHtml(`${character.name} used potion and gained ${add_hp} HP.`)
+    } 
     io.emit('battle message', message);
 
     res.status(200).json({message: `Item successful.`, character: character, add_hp: add_hp})
