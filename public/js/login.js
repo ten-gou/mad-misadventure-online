@@ -51,7 +51,7 @@ async function loginFormHandler(event) {
   
             if (response.ok) {
               if(location.pathname === "/login"){
-                document.location.replace('/characters/');
+                document.location.replace('/');
               } else {
                 console.log("response: ", response)
                 location.reload();
