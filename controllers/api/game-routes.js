@@ -65,11 +65,10 @@ router.post('/potion', withAuth, async (req, res) => {
     const io = req.app.get('socketio');
     if (add_hp > 0) {
       const message = sanitizeHtml(`${character.name} used potion and gained ${add_hp} HP.`)
-      io.emit('battle message', message);
     } else {
       const message = sanitizeHtml(`${character.name} has no potions to use!`)
-      io.emit('battle message', message);
     }
+    io.emit('battle message', message);
 
     res.status(200).json({message: `Item successful.`, character: character, add_hp: add_hp})
    } catch (error) {
