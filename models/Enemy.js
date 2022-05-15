@@ -1,43 +1,48 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Enemy extends Model {}
 
 Enemy.init(
-    {
-      id: {
+  {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
-      name: {
+    name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-      hp: {
+    hp: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
-      attack: {
+    attack: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
-      defense: {
+    defense: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
-      exp_drop: {
+    exp_drop: {
       type: DataTypes.INTEGER,
-      allowNull: false
-      }
+      allowNull: false,
     },
-      {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'enemy'
-      }
-)
+    hit_counter: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  },
+
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "enemy",
+  }
+);
 
 module.exports = Enemy;

@@ -6,7 +6,8 @@ const {
   getUserById,
   createUser,
   updateUserById,
-  deleteUserById
+  deleteUserById,
+  updateUserLoggedInStatus
 } = require("../../lib/user");
 
 const {
@@ -92,26 +93,33 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     };
-    req.session.save(() => {
+    
+    req.session.save( async () => {
       req.session.user_id = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;
-  
+      console.log(req.session)
+      await updateUserLoggedInStatus(user.id, true);
       res.json({ user: user.username, message: 'You are now logged in!' });
     });
+
+    
+    
   } catch (err) {
     res.status(500).json("Unable to log in")
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', async (req, res) => {
+  console.log(req.session)
   if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
+    console.log(req.session)
+    await updateUserLoggedInStatus(req.session.user_id, false);
+    req.session.destroy();
+    res.status(204).json({message: "404"});
   }
   else {
-    res.status(404).end();
+    res.status(404).json({message: "404"});
   }
 });
 

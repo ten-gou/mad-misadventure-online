@@ -1,12 +1,11 @@
 const router = require('express').Router() ;
 const sanitizeHtml = require('sanitize-html');
 const {withAuth} = require('../../utils/auth');
-const {playerAttack, playerDefend, playerPotion} = require('../../lib/game');
+const {playerAttack, playerDefend, playerPotion, enemyAttackAll} = require('../../lib/game');
 const { Character } = require('../../models');
 
 // Attacking
 router.post('/attack', withAuth, async (req, res) => {
-  console.log(`${req.method}: ${req.baseUrl}`);
 
   try {
     const enemy_id = 1;
@@ -58,11 +57,6 @@ router.post('/potion', withAuth, async (req, res) => {
   try {
     const {character, add_hp} = await playerPotion(req.session.user_id)
 
-    const character_res = {
-      "name": character.name,
-      "add_hp": add_hp
-    }
-
     const io = req.app.get('socketio');
     const message = sanitizeHtml(`${character.name} used potion and gained ${add_hp} HP.`)
     io.emit('battle message', message);
@@ -70,10 +64,21 @@ router.post('/potion', withAuth, async (req, res) => {
     res.status(200).json({message: `Item successful.`, character: character, add_hp: add_hp})
    } catch (error) {
     console.log(error);
-    res.status(500).json({"Error": "Server error while attempting to item in game."});
+    res.status(500).json({"Error": "Server error while attempting use potion."});
   }
 })
 
+//dev route
+router.post('/enemyAttackAll', withAuth, async (req, res) => {
+  try {
+    // TODO: if cycling monsters, function to get current enemy id 
+    await enemyAttackAll(1)
 
+    res.status(200).json({message: `enemy attacked all`})
+   } catch (error) {
+    console.log(error);
+    res.status(500).json({"Error": "Server error while attempting to enemy attack all."});
+  }
+})
 
 module.exports = router;
