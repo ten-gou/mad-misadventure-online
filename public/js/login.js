@@ -29,6 +29,7 @@ async function loginFormHandler(event) {
     event.preventDefault();
   
     const username = document.getElementById('username-signup').value.trim();
+    const characterName = document.getElementById('characterName-signup').value.trim();
     const email = document.getElementById('email-signup').value.trim();
     const password = document.getElementById('password-signup').value.trim();
   
@@ -37,12 +38,14 @@ async function loginFormHandler(event) {
       //   grecaptcha.execute('6LfGds4fAAAAAMkLeNvizoDylbBPZbYGLuBgOOS7', {action: 'submit'})
       //   .then( async function(token) {
           event.preventDefault();
+          console.log("characterName: ", characterName)
           if (username && email && password) {
             const response = await fetch('/api/users', {
               method: 'post',
               body: JSON.stringify({
                 // token,
                 username,
+                characterName,
                 email,
                 password
               }),
@@ -51,7 +54,7 @@ async function loginFormHandler(event) {
   
             if (response.ok) {
               if(location.pathname === "/login"){
-                document.location.replace('/characters/');
+                document.location.replace('/');
               } else {
                 console.log("response: ", response)
                 location.reload();
