@@ -9,7 +9,7 @@ async function CharacterInfoPage() {
         console.log(userid)
     }
 
-    const response = await fetch(`/api/characters/${id}`, {
+    const response = await fetch(`/api/characters/1`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
