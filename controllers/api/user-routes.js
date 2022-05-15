@@ -47,14 +47,12 @@ router.post('/', async (req, res) => {
     }
 
     const user = await createUser(userData);
-    if (!user) {
+
+    if (typeof user === 'string' ) {
+      console.error("Failed to create user.")
       res.status(400).json({ message: "Unable to create user." });
       return
     }
-
-    console.log("userData: ", userData);
-    console.log("characterName: ", characterName);
-    console.log("user.id: ", user.id);
 
     const user_id = user.id;
 
@@ -77,6 +75,7 @@ router.post('/', async (req, res) => {
         res.json({message: "Account created."}) 
     })
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
@@ -115,8 +114,10 @@ router.post('/logout', async (req, res) => {
   if (req.session.loggedIn) {
     console.log(req.session)
     await updateUserLoggedInStatus(req.session.user_id, false);
-    req.session.destroy();
-    res.status(204).json({message: "404"});
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+
   }
   else {
     res.status(404).json({message: "404"});
