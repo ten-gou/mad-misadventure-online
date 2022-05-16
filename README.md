@@ -22,9 +22,10 @@ Made by Libin Wang, Eric Ng, and Joseph Rule, this program is considered to be u
 
 
 ## 1. Description
-A primarily text-based online rpg
+A primarily text-based online rpg, with realtime combat across multiple players. [Access the game here!](https://mad-misadventure-online.herokuapp.com/)
 
 ### 1-1. Picture or Video Examples
+https://user-images.githubusercontent.com/30391578/168517126-930d32d7-f3b6-41ba-b4f7-14935df94ed6.mp4
 
 ### 1-2. Known Bugs
 N/A
@@ -33,10 +34,10 @@ N/A
 Anyone is free to use and modify this software without restrictions.
 
 ## 2. Installation Instructions
-TBD
+N/A
 
 ## 3. Usage Information
-It is an online text-based rpg
+N/A
 
 ## 4. Contribution Guidelines
 N/A
@@ -45,11 +46,11 @@ N/A
 N/A
 
 ## 6. Questions
-Have any questions? Contact me, using the points of contact provided below:
+Have any questions? Contact us, using the points of contact provided below:
 
 **GITHUB ACCOUNT:** ten-gou, EricNg314, and JosephRule
 
-**GITHUB LINK:** https://www.github.com/ten-gou, EricNg314, and JosephRule
+**GITHUB LINK:** https://www.github.com/ten-gou, https://www.github.com/EricNg314, and https://www.github.com/JosephRule
 
 **EMAIL:** lwang79@zoho.com, josephrule1@gmail.com
     
