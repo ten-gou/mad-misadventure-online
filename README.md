@@ -51,5 +51,5 @@ Have any questions? Contact me, using the points of contact provided below:
 
 **GITHUB LINK:** https://www.github.com/ten-gou, EricNg314, and JosephRule
 
-**EMAIL:** lwang79@zoho.com, ng.eric314@gmail.com, josephrule1@gmail.com
+**EMAIL:** lwang79@zoho.com, josephrule1@gmail.com
     
