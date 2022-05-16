@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   Character.findOne({
     where: {
-      id: req.session.user_id
+      user_id: req.session.user_id
     },
     attributes: [
       'id',

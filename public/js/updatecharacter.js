@@ -8,11 +8,11 @@ async function updateCharacterName() {
     console.log(newName);
     console.log(currentName);
 
-    const response = await fetch(`/api/characters/`, {
+    const response = await fetch(`/api/characters`, {
         method: 'PUT',
         body: {
-            currentName,
-            newName,
+            currentName: currentName,
+            newName: newName,
         },
         headers: {
             'Content-Type': 'application/json'
