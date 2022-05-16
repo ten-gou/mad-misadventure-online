@@ -6,6 +6,7 @@ const {
   getCharacterById,
   createCharacter,
   updateCharacterById,
+  updateCharacterByNameAndId,
   deleteCharacterById,
 } = require("../../lib/character");
 
@@ -53,13 +54,16 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/", async (req, res) => {
+  const user_id = req.session.user_id;
+  const { currentName, newName } = req.body;
+
   try {
-    const character = await updateCharacterById(req.params.id, req.body);
+    const character = await updateCharacterByNameAndId(user_id, currentName, newName);
     if (!character) {
       res
         .status(404)
-        .json({ message: "Unable to get character with given id" });
+        .json({ message: "Unable to update character" });
     }
     res.status(200).json(character);
   } catch {
