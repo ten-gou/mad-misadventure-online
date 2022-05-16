@@ -5,7 +5,7 @@ async function CharacterInfoPage() {
         res.status(404).json({ message: "Unable to get user with given id" });
     }
     else {
-        console.log(userid)
+        console.log(userid);
     }
 
     const response = await fetch(`/api/characters/1`, {
