@@ -55,13 +55,8 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 router.put("/", async (req, res) => {
-  console.log("entered route")
   const user_id = req.session.user_id;
   const { currentName, newName } = req.body;
-
-  console.log("user_id:", user_id);
-  console.log("currentName:", currentName);
-  console.log("newName:", newName);
 
   try {
     const character = await updateCharacterByNameAndId(user_id, currentName, newName);
